@@ -1,5 +1,8 @@
 import hashlib
 import uuid
+import datetime
+
+DIFF_JST_FROM_UTC = 9
 
 #　アカウントの管理を行うクラス
 class account_manager:
@@ -19,6 +22,43 @@ class account_manager:
         doc_ref.set({
             u'password': hash_pass,
             u'username': username
+        })
+        now = datetime.datetime.utcnow() + datetime.timedelta(hours=DIFF_JST_FROM_UTC)
+        year = now.year
+        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
+            u'subject':'元旦',
+            u'year': year+1,
+            u'month': 1,
+            u'date': 1,
+            u'importance': 2,
+        })
+        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
+            u'subject': 'バレンタインデー',
+            u'year': year+1,
+            u'month': 2,
+            u'date': 14,
+            u'importance': 2,
+        })
+        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
+            u'subject': '七夕',
+            u'year': year,
+            u'month': 7,
+            u'date': 7,
+            u'importance': 2,
+        })
+        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
+            u'subject': 'ハロウィン',
+            u'year': year,
+            u'month': 10,
+            u'date': 31,
+            u'importance': 2,
+        })
+        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
+            u'subject': 'クリスマス',
+            u'year': year,
+            u'month': 12,
+            u'date': 25,
+            u'importance': 2,
         })
         return user_id
 

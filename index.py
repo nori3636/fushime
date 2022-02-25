@@ -86,14 +86,6 @@ def login():
     if uid != None:
         user = User(uid)
         login_user(user)
-        schedule = schedule_manager(current_user.id,db)
-        now = datetime.datetime.utcnow() + datetime.timedelta(hours=DIFF_JST_FROM_UTC)
-        year = now.year
-        schedule.add('元旦',year+1,1,1,3)
-        schedule.add('バレンタインデー',year+1,2,14,3)
-        schedule.add('七夕',year,7,7,3)
-        schedule.add('ハロウィン',year,10,31,3)
-        schedule.add('クリスマス',year,12,25,3)
         return redirect(url_for("calendar_page"))
     else:
         flash('パスワードかユーザー名が違います')
@@ -169,7 +161,7 @@ def regist():
         flash('予定日が入力されてません','error')
         return render_template('regist.html')
     # 日付を変数に格納
-    dt = datetime.datetime.strptime(date, '%Y-%m-%d')
+    dt = datetime.datetime.strptime(date, '%Y-%m-%d')+ datetime.timedelta(hours=DIFF_JST_FROM_UTC)
     year = dt.year
     month = dt.month
     day = dt.day
