@@ -6,53 +6,58 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-
-<!--<biv>-->  
-<div class="flex bg-white-200">
-  <div class="italic ... flex-1 text-white text-left bg-gray-400 py-2"><p class="text-5xl ...">スケアプ-予定がまいりま～す</p></div>
-  <div class="flex-1 text-white-700 text-left bg-white-400 px-4 py-2 m-2"></div>
+  <div class="flex bg-white-200">
+    <div class="italic ... flex-1 text-white text-left bg-gray-400 py-2">
+      <p class="text-5xl ...">スケアプ-予定がまいりま～す</p>
+    </div>
+    <div class="flex-1 text-white-700 text-left bg-white-400 px-4 py-2 m-2"></div>
+  </div>
+  <div class="bg-grey-200 p-4">
+    <span class="block text-white-700 text-center bg-white-400 "></span>
+  <biv class="flex bg-gray-200">
+    <div class="flex-1 text-white text-center bg-blue-900"><p class="text-1xl ...">{{user_name}}様</p></div>
+    <div class="flex-1 text-white-700 text-center bg-gray-400"><p class="text-3xl ...">予定</p></div>
+    <div class="flex-1 text-center bg-gray-400"><p class="text-3xl ...">残りの日数</p></div>
+    <div class="flex-1 text-center bg-gray-400"><p class="text-3xl ...">重要度</p></div> 
+  </biv> 
+  <biv class="flex bg-gray-200">
+    <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">{{tuki}}/{{hi}}</p></div>
+    <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{schedule1.subject}}</p></div>
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule1.date}}</p></div>
+    <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule1.importance}}</p></div> 
+  </biv> 
+  <biv class="flex bg-gray-200">
+    <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">{{youbi}}</p></div>
+    <div class="flex-1 text-center bg-white-400 "><p class="text-4xl ...">{{schedule2.subject}}</p></div>
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule2.date}}</p></div>
+    <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule2.importance}}</p></div> 
+  </biv> 
+  <biv class="flex bg-gray-200">
+    <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
+    <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{schedule3.subject}}</p></div>
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule3.date}}</p></div>
+    <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule3.importance}}</p></div> 
+  </biv> 
+  <biv class="flex bg-gray-200">
+    <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
+    <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{schedule4.subject}}</p></div>
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule4.date}}</p></div>
+    <div class="flex-1 text-yellow-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule4.importance}}</p></div> 
+  </biv> 
+  <biv class="flex bg-gray-200">
+    <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
+    <div class="flex-1  text-center bg-white-400 "><p class="text-4xl ...">{{schedule5.subject}}</p></div>
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule5.date}}</p></div>
+    <div class="flex-1  text-center bg-white-400"><p class="text-4xl text-green-500">{{schedule5.importance}}</p></div> 
+  </biv>
 </div>
-<div class="bg-grey-200 p-4">
-  <span class="block text-white-700 text-center bg-white-400 "></span>
-<biv class="flex bg-gray-200">
-  <div class="flex-1 text-white text-center bg-blue-900"><p class="text-1xl ...">{{namae}}様</p></div>
-  <div class="flex-1 text-white-700 text-center bg-gray-400"><p class="text-3xl ...">予定</p></div>
-  <div class="flex-1 text-center bg-gray-400"><p class="text-3xl ...">残りの日数</p></div>
-  <div class="flex-1 text-center bg-gray-400"><p class="text-3xl ...">重要度</p></div> 
-</biv> 
-<biv class="flex bg-gray-200">
-  <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">{{tuki}}/{{hi}}</p></div>
-  <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{yotei.yoteimei}}</p></div>
-  <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{yotei.nissuu}}</p></div>
-  <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{yotei.zyuuyoudo}}</p></div> 
-</biv> 
-<biv class="flex bg-gray-200">
-  <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">{{youbi}}</p></div>
-  <div class="flex-1 text-center bg-white-400 "><p class="text-4xl ...">{{yotei2.yoteimei}}</p></div>
-  <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{yotei2.nissuu}}</p></div>
-  <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{yotei2.zyuuyoudo}}</p></div> 
-</biv> 
-<biv class="flex bg-gray-200">
-  <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
-  <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{yotei3.yoteimei}}</p></div>
-  <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{yotei3.nissuu}}</p></div>
-  <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{yotei3.zyuuyoudo}}</p></div> 
-</biv> 
-<biv class="flex bg-gray-200">
-  <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
-  <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{yotei4.yoteimei}}</p></div>
-  <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{yotei4.nissuu}}</p></div>
-  <div class="flex-1 text-yellow-500 text-center bg-white-400"><p class="text-4xl ...">{{yotei4.zyuuyoudo}}</p></div> 
-</biv> 
-<biv class="flex bg-gray-200">
-  <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
-  <div class="flex-1  text-center bg-white-400 "><p class="text-4xl ...">{{yotei5.yoteimei}}</p></div>
-  <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{yotei5.nissuu}}</p></div>
-  <div class="flex-1 text-green-500 text-center bg-white-400"><p class="text-4xl ...">{{yotei5.zyuuyoudo}}</p></div> 
-</biv> 
-</ul>  
-
+<div>
+  <button class="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded" >
+    <a href='regist'>予定の登録</a>
+  </button>
+  <button class="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded" >
+    <a href='logout'>ログアウト</a>
+  </button>
 </div>
-
 </body>
 </html>
