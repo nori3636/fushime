@@ -25,36 +25,37 @@ class account_manager:
         })
         now = datetime.datetime.utcnow() + datetime.timedelta(hours=DIFF_JST_FROM_UTC)
         year = now.year
-        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
-            u'subject':'元旦',
+        
+        self.db.collection(u'users').document(user_id).collection(u'schedules').add({
+            u'subject':u'元旦',
             u'year': year+1,
             u'month': 1,
             u'date': 1,
             u'importance': 2,
         })
-        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
-            u'subject': 'バレンタインデー',
+        self.db.collection(u'users').document(user_id).collection(u'schedules').add({
+            u'subject': u'バレンタインデー',
             u'year': year+1,
             u'month': 2,
             u'date': 14,
             u'importance': 2,
         })
-        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
-            u'subject': '七夕',
+        self.db.collection(u'users').document(user_id).collection(u'schedules').add({
+            u'subject': u'七夕',
             u'year': year,
             u'month': 7,
             u'date': 7,
             u'importance': 2,
         })
-        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
-            u'subject': 'ハロウィン',
+        self.db.collection(u'users').document(user_id).collection(u'schedules').add({
+            u'subject': u'ハロウィン',
             u'year': year,
             u'month': 10,
             u'date': 31,
             u'importance': 2,
         })
-        self.db.collection(u'users').document(hash_pass).collection(u'schedules').add({
-            u'subject': 'クリスマス',
+        self.db.collection(u'users').document(user_id).collection(u'schedules').add({
+            u'subject': u'クリスマス',
             u'year': year,
             u'month': 12,
             u'date': 25,
