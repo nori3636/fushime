@@ -12,7 +12,7 @@ class account_manager:
         docs = users.stream()
         for doc in docs:
             if doc.id :
-                return False
+                return None
         user_id = str(uuid.uuid4())
         doc_ref = self.db.collection(u'users').document(user_id)
         hash_pass = hashlib.sha256(password.encode("utf-8")).hexdigest()
@@ -29,7 +29,7 @@ class account_manager:
         for doc in docs:
             if doc.id :
                 return doc.id
-        return False
+        return None
 
     def user_name(self,user_id):
         doc_ref = self.db.collection(u'users').document(user_id)
