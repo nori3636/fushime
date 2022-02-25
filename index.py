@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, url_for, render_template, flash
 from flask_login import login_user, logout_user, LoginManager, UserMixin, login_required, current_user
+from numpy import array
 
 from functions.schedule_manager import schedule_manager
 from functions.account_manager import account_manager
@@ -52,15 +53,9 @@ def week_name(input:str):
     else:
         return False
 
+def is_matched(s):
+    return True if re.fullmatch('(?i:\A[a-z\d]{8,100}\Z)', s) else False
 
-# schedule = schedule_manager(current_user.id,db)
-# now = datetime.datetime.utcnow() + datetime.timedelta(hours=DIFF_JST_FROM_UTC)
-# year = now.year
-# schedule.add('元旦',year+1,1,1,3)
-# schedule.add('バレンタインデー',year+1,2,14,3)
-# schedule.add('七夕',year,7,7,3)
-# schedule.add('ハロウィン',year,10,31,3)
-# schedule.add('クリスマス',year,12,25,3)
 
 #ユーザークラスを定義
 class  User(UserMixin):
@@ -88,9 +83,17 @@ def login():
         return render_template('login.html')
     uid= account.login(check_name,password)
     print(uid)
-    if uid != False:
+    if uid != None:
         user = User(uid)
         login_user(user)
+        schedule = schedule_manager(current_user.id,db)
+        now = datetime.datetime.utcnow() + datetime.timedelta(hours=DIFF_JST_FROM_UTC)
+        year = now.year
+        schedule.add('元旦',year+1,1,1,3)
+        schedule.add('バレンタインデー',year+1,2,14,3)
+        schedule.add('七夕',year,7,7,3)
+        schedule.add('ハロウィン',year,10,31,3)
+        schedule.add('クリスマス',year,12,25,3)
         return redirect(url_for("calendar_page"))
     else:
         flash('パスワードかユーザー名が違います')
@@ -106,12 +109,11 @@ def signup():
     if add_name == '':
         flash('ユーザー名が空欄です')
         return render_template('signup.html')
-    pass_check = re.match('\A[a-z\d]{8,100}\Z(?i)',password)
-    if pass_check is None:
+    if not is_matched(password):
         flash('パスワードは半角英数字8文字以上です')
         return render_template('signup.html')
     uid = account.signup(add_name,password)
-    if uid != False:
+    if uid != None:
         user = User(uid)
         login_user(user)
         return redirect(url_for("calendar_page"))
@@ -128,12 +130,23 @@ def calendar_page():
     month = now.month
     day = now.day
     schedule = schedule_manager(current_user.id,db)
-    schedules= schedule.get_up_to_nth(6)
+    schedules= schedule.get_up_to_nth(5)
     schedule1= schedules[0]
     schedule2= schedules[1]
     schedule3= schedules[2]
     schedule4= schedules[3]
     schedule5= schedules[4]
+    date_array = []
+    diff = []
+    for i in range(5):
+        date_array.append(datetime.datetime(schedules[i]['year'],schedules[i]['month'],schedules[i]['date']))
+        diff.append((date_array[0]-now).days)
+    schedule1['diff'] = (date_array[0] - now).days
+    schedule2['diff'] = (date_array[1] - now).days
+    schedule3['diff'] = (date_array[2] - now).days
+    schedule4['diff'] = (date_array[3] - now).days
+    schedule5['diff'] = (date_array[4] - now).days  
+    
     return render_template('calender.html',user_name = current_user.name,
     schedule1=schedule1,schedule2=schedule2,schedule3=schedule3,
     schedule4=schedule4,schedule5=schedule5,

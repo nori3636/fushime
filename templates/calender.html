@@ -23,32 +23,72 @@
   <biv class="flex bg-gray-200">
     <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">{{tuki}}/{{hi}}</p></div>
     <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{schedule1.subject}}</p></div>
-    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule1.date}}</p></div>
-    <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule1.importance}}</p></div> 
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule1.diff}}</p></div>
+    <div class="flex-1  text-center bg-white-400">
+      {% if schedule1.importance == 1 %}
+        <p class="text-4xl text-red-500">特急</p>
+      {% elif schedule1.importance == 2 %}
+        <p class="text-4xl text-yellow-500">快速</p>
+      {% elif schedule1.importance == 3 %}
+        <p class="text-4xl text-green-500">普通</p>
+      {% endif %}
+    </div> 
   </biv> 
   <biv class="flex bg-gray-200">
     <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">{{youbi}}</p></div>
     <div class="flex-1 text-center bg-white-400 "><p class="text-4xl ...">{{schedule2.subject}}</p></div>
-    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule2.date}}</p></div>
-    <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule2.importance}}</p></div> 
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule2.diff}}</p></div>
+    <div class="flex-1 text-red-500 text-center bg-white-400">
+      {% if schedule2.importance == 1 %}
+        <p class="text-4xl text-red-500">特急</p>
+      {% elif schedule2.importance == 2 %}
+        <p class="text-4xl text-yellow-500">快速</p>
+      {% elif schedule2.importance == 3 %}
+        <p class="text-4xl text-green-500">普通</p>
+      {% endif %}
+    </div> 
   </biv> 
   <biv class="flex bg-gray-200">
     <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
     <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{schedule3.subject}}</p></div>
-    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule3.date}}</p></div>
-    <div class="flex-1 text-red-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule3.importance}}</p></div> 
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule3.diff}}</p></div>
+    <div class="flex-1 text-red-500 text-center bg-white-400">
+      {% if schedule3.importance == 1 %}
+        <p class="text-4xl text-red-500">特急</p>
+      {% elif schedule3.importance == 2 %}
+        <p class="text-4xl text-yellow-500">快速</p>
+      {% elif schedule3.importance == 3 %}
+        <p class="text-4xl text-green-500">普通</p>
+      {% endif %}
+    </div> 
   </biv> 
   <biv class="flex bg-gray-200">
     <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
     <div class="flex-1 text-white-700 text-center bg-white-400 "><p class="text-4xl ...">{{schedule4.subject}}</p></div>
-    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule4.date}}</p></div>
-    <div class="flex-1 text-yellow-500 text-center bg-white-400"><p class="text-4xl ...">{{schedule4.importance}}</p></div> 
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule4.diff}}</p></div>
+    <div class="flex-1  text-center bg-white-400">
+      {% if schedule4.importance == 1 %}
+        <p class="text-4xl text-red-500">特急</p>
+      {% elif schedule4.importance == 2 %}
+        <p class="text-4xl text-yellow-500">快速</p>
+      {% elif schedule4.importance == 3 %}
+        <p class="text-4xl text-green-500">普通</p>
+      {% endif %}
+    </div> 
   </biv> 
   <biv class="flex bg-gray-200">
     <div class="flex-1 text-white text-center bg-blue-900"><p class="text-5xl ...">　</p></div>
     <div class="flex-1  text-center bg-white-400 "><p class="text-4xl ...">{{schedule5.subject}}</p></div>
-    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule5.date}}</p></div>
-    <div class="flex-1  text-center bg-white-400"><p class="text-4xl text-green-500">{{schedule5.importance}}</p></div> 
+    <div class="flex-1 text-center bg-white-400"><p class="text-4xl ...">{{schedule5.diff}}</p></div>
+    <div class="flex-1  text-center bg-white-400">
+      {% if schedule5.importance == 1 %}
+        <p class="text-4xl text-red-500">特急</p>
+      {% elif schedule5.importance == 2 %}
+        <p class="text-4xl text-yellow-500">快速</p>
+      {% elif schedule5.importance == 3 %}
+        <p class="text-4xl text-green-500">普通</p>
+      {% endif %}
+    </div> 
   </biv>
 </div>
 <div>
@@ -59,5 +99,6 @@
     <a href='logout'>ログアウト</a>
   </button>
 </div>
+{{src}}
 </body>
 </html>
