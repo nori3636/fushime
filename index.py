@@ -25,10 +25,10 @@ login_manager.init_app(app)
 login_manager.login_view = "login" # ログインしてない時に飛ばされる場所
 
 #firebaseの設定を読み込む
-cred = credentials.Certificate('fushime-9ccc3-firebase-adminsdk-9vqsu-a9d6643f4e.json')
+# cred = credentials.Certificate('fushime-9ccc3-firebase-adminsdk-9vqsu-a9d6643f4e.json')
 if not firebase_admin._apps:
-    # api_key =json.loads(os.getenv('firestore_apikey'))
-    # cred = credentials.Certificate(api_key)
+    api_key =json.loads(os.getenv('firestore_apikey'))
+    cred = credentials.Certificate(api_key)
     firebase_admin.initialize_app(cred)
     
 db = firestore.client()
