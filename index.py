@@ -133,12 +133,11 @@ def calendar_page():
     for i in range(5):
         date_array.append(datetime.datetime(schedules[i]['year'],schedules[i]['month'],schedules[i]['date']))
         diff.append((date_array[0]-now).days)
-    schedule1['diff'] = (date_array[0] - now).days
-    schedule2['diff'] = (date_array[1] - now).days
-    schedule3['diff'] = (date_array[2] - now).days
-    schedule4['diff'] = (date_array[3] - now).days
-    schedule5['diff'] = (date_array[4] - now).days  
-    
+    schedule1['diff'] = (date_array[0] - now).days + 1
+    schedule2['diff'] = (date_array[1] - now).days + 1
+    schedule3['diff'] = (date_array[2] - now).days + 1
+    schedule4['diff'] = (date_array[3] - now).days + 1
+    schedule5['diff'] = (date_array[4] - now).days + 1
     return render_template('calender.html',user_name = current_user.name,
     schedule1=schedule1,schedule2=schedule2,schedule3=schedule3,
     schedule4=schedule4,schedule5=schedule5,
